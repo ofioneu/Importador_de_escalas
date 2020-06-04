@@ -12,10 +12,22 @@ class Viscofan:
         self.output = output
         self.excecao = excecao
 
+        print('Path input:', self.path)
+        print('Path output:', self.output)
+        print('Abrindo o arquivo xlsx')
+        print('Criando o data frame...')
+
         xlsx = pd.read_excel(self.path) # abre o arquivo xlsx
         frame = pd.DataFrame(xlsx) # cria um dataframe geral do arquivo
 
+        print('Data frame criado!')
+        print('Abrindo arquivo principal de saída...')
+
         arq_all = open (str(self.output)+'escala.txt', 'a')
+
+        print('Arquivo principal de saída criado!')
+        print('Coletando dados...')
+        
 
 
         t1e = frame.loc[0, 'TURNO 1 E']
@@ -24,7 +36,7 @@ class Viscofan:
         t2s = frame.loc[0, 'TURNO 2 S']
         t3e = frame.loc[0, 'TURNO 3 E']
         t3s = frame.loc[0, 'TURNO 3 S']
-
+        
         ida = frame.loc[0, 'ID A'].astype(int)
         idb = frame.loc[0, 'ID B'].astype(int)
         idc = frame.loc[0, 'ID C'].astype(int)
@@ -33,7 +45,8 @@ class Viscofan:
 
         ano = frame.loc[0, 'ANO'].astype(int)
         mes = frame.loc[0, 'MÊS'].astype(int)
-
+        print('Dados coletados!')
+        print('Iniciando os filtros e as escritas nos arquivos de saída...')
         dia = 0
         for i in frame['ESCALA A'].dropna():
             dia=dia+1
@@ -196,3 +209,6 @@ class Viscofan:
             
         arq_all.close()
         print('Arquivo criado com sucesso!!')
+        print('Concluído!')
+
+        return True
