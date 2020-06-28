@@ -7,8 +7,8 @@ class importadores:
         sg.theme('BluePurple')   # Tema da tela
         #layout
         layout = [
-            [sg.Text('Path do arquivo de entrada', size=(10,0)), sg.Input(key='input', size=(80, 0))],
-            [sg.Text('Path do arquivo de saída', size=(10,0)), sg.Input(key='output', size=(80, 0))],
+            [sg.Text('Path do arquivo de entrada', size=(10,0)), sg.Input(key='input', size=(80, 0)), sg.FileBrowse()],
+            [sg.Text('Path do arquivo de saída', size=(10,0)), sg.Input(key='output', size=(80, 0)), sg.FileBrowse()],
             [sg.Text('Exceção criada:', size=(0,0)), sg.Input(key='excecao')],
             [sg.Text('Marque a empresa:', font=(0,15))],
             [sg.Checkbox('Viscofan', key='viscofan')],
